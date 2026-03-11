@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+<head>
+    <title>Catpuccino Cat Café</title>
+    <link rel="stylesheet" href="Styles.css"/>
+    <link rel="stylesheet" href="Cats-Styles.css"/>
+    <link rel="icon" type="image/png" href="Images/mainIcon.png"/>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Catpuccino Cat Café">
+    <meta name="description" property="og:description" content="The best cat café in Europe!">
+    <meta property="og:image" content="Images/Thumb.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="SpawnListener();">
+    <header class="MenuBar">
+        <nav class="MenuItems">
+            <img src="Images/MenuBarLogo.png" class="Logo" alt="Catpuccino's logo"/>
+
+            <div class="Filler" onclick="ToggleMenu()"></div>
+
+            <a class="MenuButton" href="Index.html">
+                <div class="MenuText">Strona Główna</div>
+            </a>
+
+            <a class="MenuButton" href="Menu.html">
+                <div class="MenuText">Menu</div>
+            </a>
+
+            <a class="MenuButton" href="AboutUs/AboutUs.html">
+                <div class="MenuText">O nas</div>
+            </a>
+            
+            <a class="MenuButton" href="Cats.html">
+                <div class="MenuText">Nasi Podopieczni</div>
+            </a>
+
+            <a class="MenuButton" href="terms.html">
+                <div class="MenuText">Regulamin</div>
+            </a>
+
+            <a class="MenuButton" href="contact.html">
+                <div class="MenuText">Kontakt</div>
+            </a>
+        </nav>
+        <script src="Hamburger.js"></script>
+    </header>
+<main>
+    <div class="CatBlock">
+        <h2 class="CatTitle">Iskierka</h2>
+        <div class="Text CenterText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. </div>
+        <img class="FullWidthImg" src="Images/IskierkaGrass.png" alt="Photo of our cat -- Iskierka." />
+    </div>
+    <div class="CatBlock LeosBlock">
+        <div class="LeosDesc">
+            <h2 class="CatTitle">Leoś</h2>
+            <div class="Text CenterText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. </div>
+        </div>
+        <img class="FullWidthImg" src="Images/Leos.png" alt="Photo of our cat -- Leoś." />
+    </div>
+    <div class="CatBlock PennyBlock">
+        <img class="FullWidthImg" src="Images/Penny.png" alt="Photo of our cat -- Penny." />
+        <div class="LeosDesc">
+            <h2 class="CatTitle StarText">Penny</h2>
+            <div class="Text CenterText StarText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+        </div>
+    </div>
+    <script src="ImgSpawn.js"></script>
+</main>
+</body>
+
+</html>

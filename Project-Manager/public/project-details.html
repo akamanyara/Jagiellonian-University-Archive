@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="index.html" class="btn-primary" style="background: #6c757d; text-decoration: none;">&larr; Back</a>
+            <h1 id="project-title">Loading...</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="add-task-section">
+                <input type="text" id="taskInput" placeholder="What to do?">
+                <button id="addTaskBtn" class="btn-primary">Add task</button>
+            </div>
+
+            <ul id="tasks-list" class="tasks-list">
+                </ul>
+        </div>
+    </main>
+
+    <script src="details.js"></script>
+</body>
+</html>

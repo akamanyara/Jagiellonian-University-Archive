@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Kocia Baza Danych (SQLite)</h1>
+
+<section>
+    <h2>Dodaj Kota</h2>
+    <input id="name" placeholder="Imię kota (Name)">
+    <input id="age" type="number" placeholder="Wiek (Age)">
+    <input id="owner" placeholder="Właściciel Email (Owner)">
+    <input id="race" placeholder="Rasa (Race)">
+    
+    <select id="status" style="width: 100%; margin-bottom: 10px; padding: 6px;">
+        <option value="NotAdopted">NotAdopted</option>
+        <option value="Adopted">Adopted</option>
+    </select>
+
+    <button onclick="addCat()">Dodaj</button>
+</section>
+
+<section>
+    <h2>Lista Kotów</h2>
+    <button onclick="loadCats()">Odśwież listę</button>
+    <ul id="catList"></ul>
+</section>
+
+<section>
+    <h2>Wyszukaj Kota</h2>
+    <input id="searchId" type="number" placeholder="ID kota">
+    <button onclick="getCatById()">Szukaj</button>
+    <pre id="singleCat"></pre>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

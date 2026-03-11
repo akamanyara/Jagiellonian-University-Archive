@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('SweetToffee.ttf') format('truetype');
+    font-weight: 400;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+    background-image: url('background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myTitle{
+    font-size: 50px;
+    color: #faf0e6;
+}
+
+.MainCont{
+    text-align: center;
+    font-family: 'MyFont';
+    font-size: 30px;
+    color: #faf0e6;
+}
+
+.MyPhoto {
+    width: 600px;
+    height: 300px; 
+    border-radius: 50px;
+    background-image: url('KiciaTori.jpg');
+    background-position: center 45%;
+    background-size: cover; 
+    align-items: center;
+    margin: 0 auto;
+}
+
+.MyPhoto:hover {
+    transform: scale(105%)
+}
+
+.MyButton {
+    margin: 30px auto 0;
+    padding: 14px 36px; 
+    display: inline-block;
+    font-family: 'MyFont';
+    border-radius: 30px;
+    background-color: rgb(85, 107, 47, 0.7);
+    font-size: 40px;
+    text-align: center;
+    color:#faf0e6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.MyButton:hover {
+    background-color: rgb(38, 50, 18, 0.7);
+    transform: translateY(-4px);
+}

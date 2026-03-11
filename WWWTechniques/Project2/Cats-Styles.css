@@ -1,0 +1,103 @@
+
+
+.FullWidthImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+
+    opacity: 0;
+    /* transition: imgSpawn 1s ease; */
+}
+
+.FullWidthImg.Visible {
+    animation: imgSpawn 1s ease;
+    opacity: 1;
+}
+
+@keyframes imgSpawn {
+    0% { opacity: 0; filter: brightness(200%)  }
+    20% { filter: brightness(200%) ;}
+    90% { filter: brightness(100%) ;}
+    100% { opacity: 1; }
+}
+
+.CatTitle {
+    width: 100%;
+    text-align: center;
+    font-family: Anothershabby;
+    font-size: 100px;
+    color: #975839;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.CenterText {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.CatBlock {
+    width: 100%;
+    /* min-height: calc(100vh - 106px);  */
+    background-image: url("Images/IcedLatteBg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* align-items: center; */
+}
+
+.CatBlock > .Text {
+    width: 1200px;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.LeosBlock {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.PadUp {
+    padding-top: 100px;
+}
+
+.LeosDesc {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.PennyBlock {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-image: url("Images/SkyBg.jpg");
+
+    padding-bottom: 100px;
+}
+
+@media (max-width: 800px){
+    .LeosDesc {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .LeosBlock {
+        grid-template-columns: 1fr;
+    }
+
+    .PennyBlock {
+        grid-template-columns: 1fr;
+    }
+
+    .CatTitle {
+        font-size: 60px;
+    }
+}
+
+.StarText {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #2b97e3;
+}

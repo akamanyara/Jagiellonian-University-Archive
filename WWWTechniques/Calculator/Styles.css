@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'HelloKitty';
+    src: url(Fonts/Boldins.ttf);
+}
+
+@font-face {
+    font-family: 'NumericFont';
+    src: url(Fonts/NumericFont.ttf);
+}
+
+body {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgb(204, 112, 135)
+}
+
+.Header {
+    font-family: 'HelloKitty';
+    color: white;
+    font-size: 850%;
+    text-align: center;
+    margin-bottom: 3%;
+    margin-top: 4%;
+}
+
+.Calculator {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-content: center; 
+    align-items: center; 
+    width: 100%;
+}
+
+.Display {
+    width: 50%;           
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.Display input {
+    width: 100%;          
+    height: 100px;
+    font-size: 28px;      
+    text-align: right;    
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    font-family: 'NumericFont';
+    color: rgb(100, 60, 70);
+}
+
+.Buttons {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 50% 50% 50% 50% 50%;
+    padding: 10px;
+    min-width: 50%;
+    min-height: 80%;
+    column-gap: 10px;
+    row-gap: 10px;
+
+}
+
+.Buttons button {
+    font-size: 30px;
+    background-color: pink;
+    font-family: 'NumericFont';
+    color: rgb(100, 60, 70);
+}
+
+.Buttons button:hover {
+    background-color: rgb(178, 134, 142);
+    transition: 0.2s;
+    color: white;
+}
+
+.Enter {
+    grid-column: span 3;
+}

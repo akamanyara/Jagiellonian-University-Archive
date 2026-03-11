@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookCat - Twoja Kulinarna Przestrzeń</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="app.resetFiltersAndGoHome()" title="Wróć na stronę główną">
+            <img src="kot.png" alt="CookCat"> CookCat
+        </div>
+        <nav class="nav-icons">
+            <div class="nav-item active" id="nav-home" onclick="app.navigate('home')" title="Strona Główna"><i class="fas fa-home"></i></div>
+            <div class="nav-item" id="nav-fav" onclick="app.navigate('favorites')" title="Polubione przepisy"><i class="fas fa-star"></i></div>
+            <div class="nav-item" id="nav-my" onclick="app.navigate('my-recipes')" title="Moje Przepisy" style="display: none;"><i class="fas fa-book-open"></i></div>
+            <div class="nav-item" id="nav-add" onclick="app.navigate('add')" title="Dodaj nowy przepis"><i class="fas fa-plus-circle"></i></div>
+            <div class="nav-item" id="nav-profile" onclick="app.navigate('profile')" title="Twój Profil"><i class="fas fa-user"></i></div>
+        </nav>
+    </header>
+
+    <div id="home-view" class="view-section active">
+        <div class="hero-banner">
+            <h1>Odkryj smak w prostocie</h1>
+            <p>Tysiące przepisów, jedna społeczność. Gotuj z CookCat.</p>
+        </div>
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Szukaj przepisu (np. Pierogi)..." oninput="app.renderRecipes()">
+                <button class="btn btn-small" onclick="app.toggleFilterModal()" style="width: auto;">
+                    <i class="fas fa-sliders-h"></i> Filtry
+                </button>
+            </div>
+            <div class="grid" id="recipe-grid"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="filter-modal">
+        <div class="modal-content">
+            <h2 style="margin-bottom:20px;">Filtrowanie</h2>
+            <div class="form-group">
+                <label class="form-label">Kategoria</label>
+                <select id="filter-type" class="form-input">
+                    <option value="all">Wszystkie</option>
+                    <option value="Śniadanie">Śniadanie</option>
+                    <option value="Obiad">Obiad</option>
+                    <option value="Kolacja">Kolacja</option>
+                    <option value="Deser">Deser</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Trudność</label>
+                <select id="filter-diff" class="form-input">
+                    <option value="all">Wszystkie</option>
+                    <option value="Łatwy">Łatwy</option>
+                    <option value="Średni">Średni</option>
+                    <option value="Trudny">Trudny</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Czas przygotowania</label>
+                <select id="filter-time" class="form-input">
+                    <option value="">Bez limitu</option>
+                    <option value="15">do 15 min</option>
+                    <option value="30">do 30 min</option>
+                    <option value="60">do 60 min</option>
+                </select>
+            </div>
+            <button class="btn" onclick="app.applyFilters()">Zastosuj</button>
+            <button class="btn" style="background:transparent; color:var(--text-light); margin-top:10px;" onclick="app.clearFilters()">Wyczyść</button>
+        </div>
+    </div>
+
+    <div id="favorites-view" class="view-section container" style="margin-top: 30px;">
+        <h2 style="margin-bottom: 20px;">Twoje Ulubione</h2>
+        <div class="search-container">
+             <input type="text" id="fav-search-input" class="search-input" placeholder="Szukaj w ulubionych..." oninput="app.renderRecipes()">
+        </div>
+        <div class="grid" id="favorites-grid"></div>
+    </div>
+
+    <div id="my-recipes-view" class="view-section container" style="margin-top: 30px;">
+        <h2 style="margin-bottom: 20px;">Twoje Autorskie Przepisy</h2>
+        <div class="search-container">
+             <input type="text" id="my-search-input" class="search-input" placeholder="Szukaj w swoich przepisach..." oninput="app.renderRecipes()">
+        </div>
+        <div class="grid" id="my-recipes-grid"></div>
+    </div>
+
+    <div id="add-view" class="view-section container" style="margin-top: 30px;">
+        <div class="form-container">
+            <button class="btn btn-small" onclick="window.history.back()" style="margin-bottom:20px; width:auto; background-color: #aaa; border:none;">&larr; Anuluj</button>
+            
+            <h2 style="margin-bottom:20px;" id="form-title">Stwórz Przepis</h2>
+            <form onsubmit="app.submitRecipe(event)">
+                <div class="form-group">
+                    <label class="form-label">Nazwa dania<span class="req">*</span></label>
+                    <input type="text" id="new-name" class="form-input" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex:1;">
+                        <label class="form-label">Typ<span class="req">*</span></label>
+                        <select id="new-type" class="form-input">
+                            <option value="Śniadanie">Śniadanie</option>
+                            <option value="Obiad">Obiad</option>
+                            <option value="Kolacja">Kolacja</option>
+                            <option value="Deser">Deser</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label class="form-label">Trudność<span class="req">*</span></label>
+                        <select id="new-diff" class="form-input">
+                            <option value="Łatwy">Łatwy</option>
+                            <option value="Średni">Średni</option>
+                            <option value="Trudny">Trudny</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex:1;">
+                        <label class="form-label">Czas (min)<span class="req">*</span></label>
+                        <input type="number" id="new-time" class="form-input" min="1" step="1" required placeholder="np. 45">
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label class="form-label">Porcje<span class="req">*</span></label>
+                        <input type="number" id="new-portions" class="form-input" min="1" step="1" required value="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Zdjęcie (plik z dysku)</label>
+                    <input type="file" id="new-img-file" class="form-input" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Opis ogólny</label>
+                    <textarea id="new-desc" class="form-input" rows="2"></textarea>
+                </div>
+                <hr style="margin: 20px 0; border:0; border-top:1px solid #eee;">
+                
+                <div class="form-group">
+                    <label class="form-label">Składniki<span class="req">*</span></label>
+                    <div class="form-row">
+                        <input type="text" id="ing-name" class="form-input" placeholder="Co? (np. Jajka)" style="flex:3;">
+                        <input type="number" id="ing-qty" class="form-input" placeholder="Ile?" step="0.1" min="0" style="flex:1;">
+                        <select id="ing-unit" class="form-input" style="flex:1;">
+                            <option value="" disabled selected>Jedn.</option>
+                            <option value="szt">szt</option>
+                            <option value="g">g</option>
+                            <option value="kg">kg</option>
+                            <option value="ml">ml</option>
+                            <option value="l">l</option>
+                            <option value="łyżki">łyżki</option>
+                            <option value="łyżeczki">łyżeczki</option>
+                            <option value="szkl">szkl</option>
+                        </select>
+                        <button type="button" class="btn btn-small" onclick="app.addIngredientToQueue()">Dodaj</button>
+                    </div>
+                    <ul id="ing-queue" class="queue-list" style="display:none;"></ul>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Instrukcja<span class="req">*</span></label>
+                    <p style="font-size:0.8rem; color:#888; margin-bottom:5px;">Nie musisz numerować kroków, zrobimy to za Ciebie.</p>
+                    <div class="form-row">
+                        <textarea id="step-desc" class="form-input" rows="1" placeholder="Opisz czynność..."></textarea>
+                        <button type="button" class="btn btn-small" onclick="app.addStepToQueue()">Dodaj</button>
+                    </div>
+                    <ul id="step-queue" class="queue-list" style="display:none;"></ul>
+                </div>
+
+                <button type="submit" class="btn" style="margin-top:20px;">Zapisz Przepis</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="recipe-view" class="view-section container" style="margin-top: 30px;"></div>
+
+    <div id="profile-view" class="view-section container" style="margin-top: 30px;">
+        <div class="form-container" id="auth-panel">
+            <h2>Witaj w CookCat</h2>
+            <p style="color:#777; margin-bottom:20px;" id="auth-msg">Zaloguj się lub zarejestruj, aby tworzyć, oceniać i zapisywać.</p>
+            
+            <div style="display:flex; gap:10px; margin-bottom:20px;">
+                <button class="btn btn-small" onclick="app.toggleAuthMode('login')" id="btn-mode-login" style="flex:1;">Logowanie</button>
+                <button class="btn btn-small" onclick="app.toggleAuthMode('register')" id="btn-mode-register" style="flex:1; background:#ccc; color:#333;">Rejestracja</button>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Login<span class="req">*</span></label>
+                <input type="text" id="login-user" class="form-input" placeholder="Login">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Hasło<span class="req">*</span></label>
+                <input type="password" id="login-pass" class="form-input" placeholder="Hasło">
+            </div>
+            <div class="form-group" id="email-group" style="display:none;">
+                <label class="form-label">Email<span class="req">*</span></label>
+                <input type="email" id="register-email" class="form-input" placeholder="Email">
+            </div>
+            
+            <button class="btn" id="auth-action-btn" onclick="app.login()">Zaloguj się</button>
+        </div>
+        
+        <div class="form-container" id="user-panel" style="display:none; text-align:center;">
+            <i class="fas fa-user-circle" style="font-size: 4rem; color: var(--logged-in-color); margin-bottom: 10px;"></i>
+            <h2>Cześć, <span id="username-display"></span>!</h2>
+            <p style="margin-bottom:20px; color:#777;">Jesteś zalogowanym kucharzem.</p>
+            <button class="btn btn-danger" onclick="app.logout()">Wyloguj się</button>
+        </div>
+    </div>
+
+    <div id="notification" class="notification">Alert</div>
+
+    <footer>
+        <p>&copy; 2026 CookCat. Wszystkie prawa zastrzeżone.</p>
+        <p>Smacznego gotowania życzy zespół CookCat!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "user-manager",
+  "version": "1.0.0",
+  "description": "Mini aplikacja Express + SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1",
+    "sqlite3": "^5.1.7"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

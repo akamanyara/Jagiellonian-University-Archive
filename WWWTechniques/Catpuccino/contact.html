@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+<head>
+    <title>Catpuccino Cat Café</title>
+    <link rel="stylesheet" href="Styles.css"/>
+    <link rel="stylesheet" href="contact-styles.css"/>
+    <link rel="icon" type="image/png" href="Images/mainIcon.png"/>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Catpuccino Cat Café">
+    <meta name="description" property="og:description" content="The best cat café in Europe!">
+    <meta property="og:image" content="Images/Thumb.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header class="MenuBar">
+        <nav class="MenuItems">
+            <img src="Images/MenuBarLogo.png" class="Logo" alt="Catpuccino's logo"/>
+
+            <div class="Filler" onclick="ToggleMenu()"></div>
+
+            <a class="MenuButton" href="Index.html">
+                <div class="MenuText">Strona Główna</div>
+            </a>
+
+            <a class="MenuButton" href="Menu.html">
+                <div class="MenuText">Menu</div>
+            </a>
+
+            <a class="MenuButton" href="AboutUs/AboutUs.html">
+                <div class="MenuText">O nas</div>
+            </a>
+            
+            <a class="MenuButton" href="Cats.html">
+                <div class="MenuText">Nasi Podopieczni</div>
+            </a>
+
+            <a class="MenuButton" href="terms.html">
+                <div class="MenuText">Regulamin</div>
+            </a>
+
+            <a class="MenuButton" href="contact.html">
+                <div class="MenuText">Kontakt</div>
+            </a>
+        </nav>
+        <script src="Hamburger.js"></script>
+    </header>
+    <main class="MainBody">
+        <section class="ContactSection">
+            <h1 class="ContactTitle">Skontaktuj się z nami!</h1>
+    
+            <form class="ContactForm" onsubmit="resetForm(event)">
+                <div class="FormRow">
+                    <div class="FormGroup">
+                        <label for="firstName">Imię</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="FormGroup">
+                        <label for="lastName">Nazwisko</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+    
+                <div class="FormRow">
+                    <div class="FormGroup">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="FormGroup">
+                        <label for="phone">Nr kontaktowy</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+    
+                <div class="FormGroup">
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Napisz swoją wiadomość..."></textarea>
+                </div>
+    
+                <button type="submit" class="SubmitButton">Wyślij</button>
+            </form>
+        </section>
+    
+        <script>
+            function resetForm(event) {
+                event.preventDefault();
+                alert("Wiadomość wysłana! Or was it...");
+                event.target.reset();
+            }
+        </script>
+    </main>
+</body>
+</html>

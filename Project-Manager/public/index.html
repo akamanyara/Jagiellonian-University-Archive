@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Project Manager</h1>
+        <button id="addProjectBtn" class="btn-primary">+ New Project</button>
+    </header>
+
+    <main>
+        <div id="projects-container" class="projects-grid">
+            <p>Loading projects...</p>
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+            <h2>Add new project</h2>
+            <form id="addProjectForm">
+                <label>Project Name:</label>
+                <input type="text" id="projectName" required placeholder="Ex. WWW page">
+
+                <label>Description:</label>
+                <textarea id="projectDesc" placeholder="Short description..."></textarea>
+            
+                <button type="submit" class="btn-primary">Save</button>
+            </form>    
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

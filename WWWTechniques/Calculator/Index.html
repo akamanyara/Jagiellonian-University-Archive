@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl-pl">
+
+<head>
+    <title>Calculator </title>
+    <link rel="stylesheet" href="Styles.css"/>
+    <script src="Calculator.js"></script>
+</head>
+
+<body>
+
+    <div class = "Header">Calculator </div>
+
+        <div class = "Calculator">
+
+        <div class="Display">
+            <input type="text" id="Display" readonly>
+        </div>
+
+        <div class = 'Buttons'>
+            <button onclick="AllClear()"> AC </button>
+            <button onclick="ClearEntry()"> CE </button>
+            <button onclick="ChooseOperator('%')"> % </button>
+            <button onclick="ChooseOperator('/')"> / </button>
+
+            <button onclick="AppendNumber(7)"> 7 </button>
+            <button onclick="AppendNumber(8)"> 8 </button>
+            <button onclick="AppendNumber(9)"> 9 </button>
+            <button onclick="ChooseOperator('*')"> * </button>
+
+            <button onclick="AppendNumber(4)"> 4 </button>
+            <button onclick="AppendNumber(5)"> 5 </button>
+            <button onclick="AppendNumber(6)"> 6 </button>
+            <button onclick="ChooseOperator('-')""> - </button>
+
+            <button onclick="AppendNumber(1)"> 1 </button>
+            <button onclick="AppendNumber(2)"> 2 </button>
+            <button onclick="AppendNumber(3)"> 3 </button>
+            <button onclick="ChooseOperator('+')"> + </button>
+
+            <button onclick="AppendNumber(0)"> 0 </button>
+            <button onclick="Calculate()" class="Enter"> Enter </button>    
+        </div>        
+
+        </div>
+    </div>
+
+</body>

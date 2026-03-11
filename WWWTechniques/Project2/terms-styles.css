@@ -1,0 +1,180 @@
+/* FONTS */
+@font-face {
+    font-family: 'RopaSans';
+    src: url(Fonts/RopaSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Anothershabby';
+    src: url(Fonts/Anothershabby.ttf);
+}
+
+@font-face {
+    font-family: 'RopaSansItalic';
+    src: url(Fonts/RopaSans-Italic.ttf);
+}
+
+body a {
+    text-decoration: none;
+    display: flex;                 
+    justify-content: center;
+    align-items: center;
+    width: 100%;                   
+    height: 100%;                  
+}
+
+/* MAIN BODY */ 
+
+body {
+    width: auto;
+    height: auto;
+    margin: 0;
+    background-color: #f5f5ed;
+}
+
+.MainBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    padding-top: 80px;
+    min-height: 100vh;
+    color: #7b4a2d;
+}
+
+.Header .Title {
+    font-family: 'RopaSans';
+    font-size: 64px;
+    color: #7b4a2d;
+    margin-bottom: 10px;
+}
+
+.Header .Subtitle {
+    font-family: 'Anothershabby';
+    font-size: 20px;
+    color: #7b4a2d;
+    margin-bottom: 50px;
+}
+
+.Rules {
+    position: relative;
+    padding: 15px 0;
+    overflow: visible;
+    text-align: center;
+}
+
+/* Bigger centered decorative image */
+.Rules::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 850px;
+    aspect-ratio: 1 / 1;
+    background-image: url('Images/CatPaw.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.Rules ol {
+    position: relative;
+    z-index: 1;
+    list-style-position: inside;
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'RopaSans';
+    font-size: 28px;
+    color: #7b4a2d;
+    line-height: 1.8;
+    max-width: 900px;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.Rules li {
+    margin: 15px 0;
+    white-space: normal;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pageFade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.ContentWrapper {
+    animation: pageFade 0.8s ease;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.Header .Title {
+    animation: fadeInDown 1s ease forwards;
+}
+
+.Header .Subtitle {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.Rules li {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* each rule appears one by one */
+.Rules li:nth-child(1) { animation-delay: 0.3s; }
+.Rules li:nth-child(2) { animation-delay: 0.5s; }
+.Rules li:nth-child(3) { animation-delay: 0.7s; }
+.Rules li:nth-child(4) { animation-delay: 0.9s; }
+.Rules li:nth-child(5) { animation-delay: 1.1s; }
+.Rules li:nth-child(6) { animation-delay: 1.3s; }
+
+
+/* HOVER ANIMATION */
+.Rules li {
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    cursor: default;
+}
+
+.Rules li:hover {
+    color: #975839;
+    transform: scale(1.03);
+    text-shadow: 0 0 10px rgba(151, 88, 57, 0.3);
+}
+
+.Bandaid {
+    padding-left: 0px;
+}
