@@ -1,0 +1,24 @@
+%!PS-Adobe-3.0
+
+% Zad.4. Wstawić ten sam tekst w różnych miejscach na stronie korzystając z
+% translate.
+
+/Times-Roman findfont 80 scalefont setfont
+
+0 0 moveto
+(hello world) show
+
+gsave
+200 200 translate
+0 0 moveto
+(hello world) show
+grestore
+
+gsave
+500 600 translate
+0 0 moveto
+(hello world) show
+grestore
+
+stroke 
+showpage

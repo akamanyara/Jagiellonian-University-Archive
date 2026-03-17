@@ -1,0 +1,19 @@
+%!PS-Adobe-3.0
+
+% Zad.3.
+% Ustalić rozmiar czcionki. Wstawić tekst. 
+% Wstawić tekst odbity względem osi y.
+
+/Times-Roman findfont
+
+80 scalefont setfont
+
+200 300 moveto
+(hello world) true charpath
+
+200 200 moveto
+1 -1 scale
+(hello world) true charpath
+
+stroke 
+showpage
