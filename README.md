@@ -18,3 +18,4 @@ I consolidated my academic coursework into this single repository to maintain a 
 - **aplikacja_kulinarna_cookcat** -> Collaborative project focused on **UI/UX and Graphic Interfaces**.
 - **weatherAPI** -> Desktop weather application built with **Python and the PyQt5 Framework**.
 - **web-scraper-visualizer** -> Data extraction tool built using the **Selenium** library.
+- **graphics** -> Graphics course with **PostScript**, etc.
