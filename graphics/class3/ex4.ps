@@ -1,0 +1,41 @@
+%!PS-Adobe-3.0
+
+% Korzystając z pętli repeat oraz instrukcji warunkowej powtórzyć zadanie 2
+% wraz ze zmianą koloru okręgów.
+
+/rysuj_okrag {
+
+    /r exch def
+    /y exch def
+    /x exch def
+
+    x y r 0 360 arc 
+
+    stroke
+} def
+
+% setup
+/mid_x 400 def
+/mid_y 400 def
+/promien 200 def
+
+/liczba_powtorzen 10 def
+/licznik 1 def
+
+% petla
+liczba_powtorzen { 
+    % warunek kolorow
+    licznik 2 mod 0 eq {
+        1 0 0 setrgbcolor
+    } {
+        0 0 1 setrgbcolor
+    } ifelse
+
+    mid_x mid_y promien rysuj_okrag
+
+    /promien promien 20 sub def
+    /mid_y mid_y 20 add def 
+    /licznik licznik 1 add def
+} repeat
+
+showpage

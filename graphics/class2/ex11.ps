@@ -1,0 +1,23 @@
+%!PS-Adobe-3.0
+%%Title: Kolorowy napis w kole
+
+/Times-Roman findfont 60 scalefont setfont
+
+% 1. Definiujemy ścieżkę koła
+200 200 80 0 360 arc 
+
+gsave
+  % --- SEKCJA NIEBIESKA (WNĘTRZE) ---
+  clip                % Od teraz wszystko rysujemy TYLKO wewnątrz koła
+  0 0 1 setrgbcolor   % Ustawiamy NIEBIESKI
+  150 200 moveto      % Pozycja napisu
+  (NAPISY) show       % Wypełniamy tekst kolorem niebieskim
+grestore              % Kończymy "wycinanie" i wracamy do całej kartki
+
+% 2. Teraz rysujemy obramowanie koła (poza gsave, więc clip już nie działa)
+1 0 0 setrgbcolor     % Ustawiamy CZERWONY
+2 setlinewidth
+200 200 80 0 360 arc  % Ponownie definiujemy koło do obrysu
+stroke
+
+showpage

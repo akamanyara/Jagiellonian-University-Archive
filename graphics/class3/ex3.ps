@@ -1,0 +1,32 @@
+%!PS-Adobe-3.0
+%%Title: Zadanie 3 - oczko z repeat
+
+% tworzymy procedure
+/rysuj_okrag {
+
+    /r exch def
+    /y exch def
+    /x exch def
+
+    x y r 0 360 arc
+    stroke
+} def
+
+% setup poczatkowy
+/mid_x 300 def
+/mid_y 400 def
+/obecny_promien 100 def
+
+/liczba_powtorzen 5 def
+
+% petla
+liczba_powtorzen {
+
+    mid_x mid_y obecny_promien rysuj_okrag
+
+    % zmniejszamy promien
+    /obecny_promien obecny_promien 20 sub def
+    /mid_y mid_y 20 add def
+} repeat
+
+showpage

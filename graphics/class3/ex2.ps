@@ -1,0 +1,28 @@
+%!PS-Adobe-3.0
+%%Title: Zadanie 2 - Pawie Oczko
+
+/rysuj_okrag {
+    /r exch def
+    /y exch def
+    /x exch def
+
+    x y r 0 360 arc
+    stroke
+} def
+
+1 0 0 setrgbcolor
+500 500 100 rysuj_okrag
+
+0 1 0 setrgbcolor
+500 520 80 rysuj_okrag
+
+0 0 1 setrgbcolor
+500 540 60 rysuj_okrag
+
+1 0 1 setrgbcolor
+500 560 40 rysuj_okrag
+
+0 0 0 setrgbcolor
+500 580 20 rysuj_okrag
+
+showpage
