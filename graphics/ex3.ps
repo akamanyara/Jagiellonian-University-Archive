@@ -1,0 +1,31 @@
+%!PS-Adobe-3.0
+%%Title: Procedura z wieloma argumentami
+
+/filledcircle {
+    % argumenty na odwrot podane
+    /blue exch def
+    /green exch def
+    /red exch def
+    /radius exch def
+    /pos_y exch def
+    /pos_x exch def
+
+    gsave
+        newpath
+        red green blue setrgbcolor
+        pos_x pos_y radius 0 360 arc
+        fill
+    grestore
+
+} def
+
+% czerwone koło: x=200, y=200, r=100, kolor=(1, 0, 0)
+200 200 100 1 0 0 filledcircle
+
+% zielone koło: x=200, y=400, r=50, kolor=(0 1 0)
+200 400 50 0 1 0 filledcircle
+
+% niebieskie koło: x=400, y=100, r=10, kolor=(0 0 1)
+400 100 10 0 0 1 filledcircle
+
+showpage

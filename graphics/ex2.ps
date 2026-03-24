@@ -1,0 +1,47 @@
+%!PS-Adobe-3.0
+%%Title: Tarcza ze stringami
+
+% czcionka
+/Helvetica-BoldOblique findfont 12 scalefont setfont
+
+% procedura do rysowania
+/rysuj_kolo {
+    /r exch def
+    /y exch def
+    /x exch def
+    
+    x y r 0 360 arc
+    
+    stroke
+} def
+
+% parametry startowe
+/s_x 300 def
+/s_y 400 def
+/r_start 30 def
+/r_krok 20 def
+
+% zienna typu string
+/napis 10 string def
+
+% pętla rysująca od 100 do 50, krok -10
+100 -10 40 {
+    /wartosc exch def % aktualna wartosc
+
+    % aktualny promien
+    /indeks 100 wartosc sub 10 div def
+    /r_teraz r_start indeks r_krok mul add def
+
+    % rysujemy okrag
+    newpath
+    s_x s_y r_teraz rysuj_kolo
+
+    % wypisanie tekstu
+    s_x 10 sub s_y r_teraz add moveto
+    
+    wartosc napis cvs show
+
+} for
+
+showpage
+

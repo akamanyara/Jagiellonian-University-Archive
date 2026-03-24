@@ -1,0 +1,40 @@
+%!PS-Adobe-3.0
+%%Title: Tablica promieni i petla for
+
+% procedura do rysowania
+/rysuj_kolo {
+    /r exch def
+    /y exch def
+    /x exch def
+    
+    x y r 0 360 arc
+    
+    stroke
+} def
+
+% tablica promieni
+/promienie [10 20 30 40 50 60 70 80] def
+
+% parametry startowe
+/s_x 300 def 
+/s_y 400 def 
+
+% for loop: start 0, krok 1, koniec 7
+0 1 7 {
+    /i exch def % indeks ze stosu
+
+    % wybieramy kolor
+    i 2 mod 0 eq {
+        0 0 1 setrgbcolor % parzyste
+    } {
+        0 1 0 setrgbcolor % nieparzyste
+    } ifelse
+
+    /r_z_tablicy promienie i get def
+
+    % rysuj
+    s_x s_y r_z_tablicy rysuj_kolo
+
+} for
+
+showpage

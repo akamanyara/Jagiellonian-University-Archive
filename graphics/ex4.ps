@@ -1,0 +1,32 @@
+%!PS-Adobe-3.0
+%%Title: Zmienne lokalne
+
+/r 20 def
+
+/line {
+    r 0 rlineto stroke
+} def
+
+% zmodyfikowane circle
+/circle {
+    2 dict begin
+        /r exch def
+
+        0 1 4 {
+            /r r 5 add def
+            100 100 r 0 360 arc
+            stroke
+        } for
+    end
+} def
+
+100 150 moveto
+line
+
+r circle
+
+100 50 moveto
+1 0 0 setrgbcolor
+line
+
+showpage
