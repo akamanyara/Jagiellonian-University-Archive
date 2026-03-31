@@ -1,0 +1,33 @@
+%!PS-Adobe-3.0
+%%Title: Kolo barw
+
+% parametry
+/wycinki 50 def
+/promien 150 def
+
+% zmienne srodka
+/s_x 300 def
+/s_y 400 def
+
+/kat_wycinka 360 wycinki div def
+/h_skok 1.0 wycinki div def
+
+% rysowanie kola
+
+0 1 wycinki 1 sub {
+    /i exch def
+
+    % kolor wycinka
+    i h_skok mul 1 1 sethsbcolor
+
+    newpath
+    s_x s_y moveto
+
+    % rysujemy promienie
+    s_x s_y promien i kat_wycinka mul i 1 add kat_wycinka mul arc
+
+    closepath
+    fill
+} for 
+
+showpage

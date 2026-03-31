@@ -1,0 +1,61 @@
+%!PS-Adobe-3.0
+%%Title: Zbior Cantora
+
+% parametry
+/iteracje 3 def
+/dlugosc_startu 450 def
+2 setlinewidth
+
+
+% procedura F - rysowanie
+/F {
+    10 dict begin
+        /n exch def
+        /d exch def
+        n 0 gt {
+            /d3 d 3 div def
+            /n1 n 1 sub def
+            d3 n1 F
+            d3 n1 f 
+            d3 n1 F
+        } {
+            % 1. odcinek od 0, 0 do d, 0
+            0 0 moveto
+            d 0 lineto
+            stroke 
+
+            % 2. przesuniecie ukladu do konca linii
+            d 0 moveto
+            currentpoint translate
+            0 0 moveto
+        } ifelse
+    end
+}def
+
+% procedura f - skoki
+/f {
+    10 dict begin 
+        /n exch def
+        /d exch def
+        n 0 gt {
+            /d3 d 3 div def
+            /n1 n 1 sub def
+            d3 n1 f
+            d3 n1 f 
+            d3 n1 f 
+        } {
+            % przesuniecie ukladu
+            d 0 moveto
+            currentpoint translate
+            0 0 moveto
+        } ifelse
+    end
+} def
+
+% main
+100 400 translate
+0 0 moveto
+
+dlugosc_startu iteracje F
+
+showpage
