@@ -1,0 +1,62 @@
+%!PS-Adobe-3.0
+%%Title: Drzewo Fraktalne
+
+% Parametry
+/limit 7 def % glebokosc
+/licznik 0 def % start
+
+% Procedura rysujaca jablko
+/jablko {
+    gsave
+        1 0 0 setrgbcolor
+        0 0 30 0 360 arc fill
+    grestore
+} def
+
+% Procedura rysujaca galaz
+/motyw {
+    newpath
+    0 0 moveto
+    0 200 lineto
+    stroke
+    0 200 translate % przesuniecie na koniec narysowanej krawedzi
+} def
+
+% Procedura fraktalujaca
+/fraktal {
+    gsave
+        0.7 0.7 scale
+        motyw
+
+        /licznik licznik 1 add def % zwiekszenie poziomu
+
+        licznik limit lt {
+            % jesli limit nie jest przekroczony to rysujemy dalej
+
+            % lewa czesc
+            gsave
+                30 rotate
+                fraktal
+            grestore
+
+            % prawa czesc 
+            gsave
+                -30 rotate
+                fraktal
+            grestore
+        } {
+            % jesli ostatnia galaz to rysujemy jablko
+            jablko
+        } ifelse
+
+        /licznik licznik 1 sub def % backtracking
+    grestore
+} def
+
+% main 
+300 50 translate
+10 setlinewidth
+
+fraktal
+
+showpage
