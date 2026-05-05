@@ -19,12 +19,12 @@ void display(void) {
 }
 
 int main(int argc, char *argv[]) {
-    glutInit(&argc, argv); // MUSI BYĆ PIERWSZE
+    glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB);
     glutInitWindowSize(400, 400);
     glutInitWindowPosition(200, 200);
     
-    glutCreateWindow("Okno OpenGL - Mac M1");
+    glutCreateWindow("window opengl");
 
     init();
     glutDisplayFunc(display);
